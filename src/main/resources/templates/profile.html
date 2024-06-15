@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile Picture</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="update-picture-container">
+            <h2>Update Profile Picture</h2>
+            <p th:if="${succesfuly}" th:text="${succesfuly}"></p>
+            <form id="update-picture-form" action="/update" method="post">
+                <div class="input-container">
+                    <input type="hidden" name="username" th:value="${signed.getusername()}">
+                    <input type="file" id="profile-picture" name="image" accept="image/*" required>
+                </div>
+                <button type="submit">Update</button>
+            </form>
+            <form action="/delete" method="post">
+                <input type="hidden" name="username" th:value="${signed.getusername()}">
+                <button type="submit">Delete</button>
+            </form>
+            <form action="/home" method="post">
+                <input type="hidden" name="username" th:value="${signed.getusername()}">
+                <button type="submit">Get start</button>
+            </form>
+        </div>
+    </div>
+    <script th:src="@{/script.js}"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile Picture</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="update-picture-container">
+            <h2>Update Profile Picture</h2>
+            <form id="update-picture-form">
+                <div class="input-container">
+                    <input type="file" id="profile-picture" name="profile-picture" accept="image/*" required>
+                </div>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+    <script>
+
+// Function to handle profile picture update form submission
+// document.getElementById('update-picture-form').addEventListener('submit', function(event) {
+//     event.preventDefault();
+    
+    // const fileInput = document.getElementById('profile-picture');
+    // const file = fileInput.files[0];
+    // if (!file) {
+    //     alert('Please select a file');
+    //     return;
+    // }
+
+    // Create form data and append file
+    // const formData = new FormData();
+    // formData.append('profilePicture', file);
+
+    // Send profile picture update request to backend API (replace 'update-picture-api-url' with actual API endpoint)
+//     fetch('update-picture-api-url', {
+//         method: 'POST',
+//         body: formData
+//     })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error('Profile picture update failed');
+//         }
+//         alert('Profile picture updated successfully');
+//         // Reload the page to display updated picture
+//         window.location.reload();
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//         alert('Profile picture update failed');
+//     });
+// });
+
+
+    </script>
+</body>
+</html>

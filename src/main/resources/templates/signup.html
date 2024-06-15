@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="signup-container">
+            <h2>Sign Up</h2>
+            <form id="signup-form" action="/signup" method="post">
+                <div class="input-container">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <script>
+
+
+// script.js
+
+// Function to handle signup form submission
+document.getElementById('signup-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    // Validate password match
+    if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return;
+    }
+
+    // Send signup request to backend API (replace 'signup-api-url' with actual API endpoint)
+    fetch('signup-api-url', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Signup failed');
+        }
+        alert('Signup successful');
+        // Redirect to login page
+        window.location.href = 'login.html';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Signup failed');
+    });
+});
+
+    </script>
+</body>
+</html>

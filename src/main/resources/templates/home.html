@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebbok</title>
+    <link rel="stylesheet" th:href="@{/home.css}">
+    <script src="https://kit.fontawesome.com/220cf49541.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!--Barra de navegacion---------------------------------------------------->
+    <nav>
+        <div class="left-nav">
+            <ul>
+                <!-- <li><a th:href="@{/index.html}"><img th:src="@{/images/logo.png" class="logo}"></a></li> -->
+            </ul>
+            <div class="div-search">
+                <img th:src="@{/images/search.png}" alt="">
+                <input type="text" placeholder="Search Facebook" class="gray-placeholder">
+            </div>
+        </div>
+
+        <div class="mid-nav">
+            <div class="mid-images">
+                <a href="#"><img th:src="@{/images/home.png}" alt=""></a>
+            </div>
+            <div class="mid-images">
+                <a href="#"><img th:src="@{/images/friends.png}" alt=""></a>
+            </div>
+            <div class="mid-images watch">
+                <a href="#"><img th:src="@{/images/watch.png}" alt=""></a>
+            </div>
+            <div class="mid-images">
+                <a href="#"><img th:src="@{/images/group.png}" alt=""></a>
+            </div>
+            <div class="mid-images games ">
+                <a href="#"><img th:src="@{/images/games.png}" alt=""></a>
+            </div>
+        </div>
+        <div class="right-nav">
+            <ul>
+                <li><a href="#"><img th:src="@{/images/menu.png}"></a></li>
+                <div class="message">
+                    <li><a href="#"><img th:src="@{/images/messenger.png}"></a></li>
+                </div>
+                <li><a href="#"><img th:src="@{/images/bell.png}" alt=""></a></li>
+                <li><a href="#"><img th:src="@{/images/perfil.jpg}" style="border-radius: 50%;"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Contenedor principal-------------------------------------------->
+    <div class="container">
+        <div class="left-sidebar">
+            <form action="/profile" method="get">
+                <input type="hidden" th:value="${user.getusername()}" name="username">
+               <button>
+                <div class="menu"><img th:src="${user.getimage()}" alt=""
+                    style="width: 39px; border-radius: 50%; margin-left: -5px; margin-right: 14px;" th:if="${user}"
+                    th:text="${user.getusername()}"></div>
+               </button> 
+            </form>
+            <div class="menu"><img th:src="@{/images/firends2.png}" alt="">Friends</div>
+            <div class="menu"><img th:src="@{/images/marketpplace.png}" alt="">Marketplace</div>
+            <div class="menu"><img th:src="@{/images/save.png}" alt=""
+                    style="width: 20px; margin-left: 5px; margin-right: 25px;">Saved</div>
+            <div class="menu"><img th:src="@{/images/watch2.png}" alt="">Watch</div>
+            <div class="menu"><img th:src="@{/images/recientes.png}" alt="">Most Recent</div>
+            <div class="menu"><img th:src="@{/images/juegos.png}" alt="">Saved</div>
+            <div class="menu"><img th:src="@{/images/grupos.png}" alt="">Gaming Video</div>
+            <div class="menu"><img th:src="@{/images/recuerdos.png}" alt="">Groups</div>
+            <div class="menu"><img th:src="@{/images/paginas.png}" alt="">Memories</div>
+            <div class="menu"><img th:src="@{/images/eventos.png}" alt="">Events</div>
+
+        </div>
+        <div class="main-content">
+            <div class="history-reels">
+                <div class="botones">
+                    <div class="buttom-history hover">
+                        <img th:src="@{/images/historias.png}" alt="">
+                        <p>Stories</p>
+                    </div>
+                    <div class="buttom-reels hover">
+                        <img th:src="@{/images/reels.png}" alt="">
+                        <p>Reels</p>
+                    </div>
+                </div>
+
+                <div class="story-gallery">
+                    <div class="story">
+                        <img th:src="@{/images/upload.png}" alt="">
+                        <p>Create history</p>
+                    </div>
+
+                    <div class="story story2">
+                        <img th:src="@{/images/member-1.png}" alt="">
+                        <p>Elizabeth Smith</p>
+                    </div>
+
+                    <div class="story story3">
+                        <img th:src="@{/images/member-2.png}" alt="">
+                        <p>John Williams</p>
+                    </div>
+
+                    <div class="story story4">
+                        <img th:src="@{/images/member-3.png}" alt="">
+                        <p>Susan Brown</p>
+                    </div>
+
+                    <div class="story story5">
+                        <img th:src="@{/images/member-4.png}" alt="">
+                        <p>James Jones</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Crear publiaciones-->
+            <div class="post">
+                <div class="texto">
+                    <img th:src="@{i/mages/main-perfil.jpg}" alt="">
+                    <input type="text" placeholder="What's on your mind, Emma">
+                </div>
+                <hr>
+                <div class="botones-texto">
+                    <div class="imagen video">
+                        <img th:src="@{/images/video.png}" alt="">
+                        <p>Live video</p>
+                    </div>
+                    <div class="imagen foto">
+                        <img th:src="@{/images/foto.png}" alt="">
+                        <p>Photo/video</p>
+                    </div>
+                    <div class="imagen feel">
+                        <img th:src="@{/images/feel.png}" alt="">
+                        <p>Feeling/activity</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Publicaicones ya posteadsa-->
+            <div class="publication">
+                <div class="perfil-information">
+                    <div class="image-perfil">
+                        <img class="perfil-image" th:src="@{/images/main-perfil.jpg}" alt="">
+                    </div>
+
+                    <div class="author-post">
+                        <span>Emma Johnson</span>
+                        <div class="date">
+                            <span style="color: #65666a">1h</span>
+                            <span>·</span>
+                            <i style="color: #65666a" class="fa-solid fa-earth-americas"></i>
+                        </div>
+                    </div>
+
+                    <div class="icons-post">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+
+                <div class="text-post">
+                    <span>one of the best days of my life. Good friends, good food best friends anyone could ever hope
+                        for, and apparently best day of the summer. everything was perfect .</span>
+                    <a href="#">#thank_you_for_a_perfect_day</a>
+                </div>
+
+                <div class="image-post">
+                    <img src="images/post1.png" alt="">
+                </div>
+
+                <div class="reactions">
+                    <div class="reaction-count">
+                        <i class="fa-solid fa-thumbs-up like-icon"></i>
+                        <i class="fa-solid fa-heart love-icon"></i>
+                        <span>1.1k</span>
+                    </div>
+
+                    <div class="comments-share">
+                        <span>29 comments</span>
+                        <span>5 shares</span>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="like-comment-share">
+                    <div class="like">
+                        <i class="fa-regular fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </div>
+                    <div class="comment">
+                        <i class="fa-regular fa-message"></i>
+                        <span>Comment</span>
+                    </div>
+                    <div class="share">
+                        <i class="fa-solid fa-share"></i>
+                        <span>Share</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="perfil-information">
+                    <div class="image-perfil">
+                        <img class="perfil-image" src="images/member-4.png" alt="">
+                    </div>
+
+                    <div class="author-post">
+                        <span>James Jones</span>
+                        <div class="date">
+                            <span style="color: #65666a">1h</span>
+                            <span>·</span>
+                            <i style="color: #65666a" class="fa-solid fa-earth-americas"></i>
+                        </div>
+                    </div>
+
+                    <div class="icons-post">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+
+                <div class="text-post">
+                    <span>nice friends nice sunset nice evening</span>
+                    <a href="#">#namago</a>
+                </div>
+
+                <div class="image-post">
+                    <img src="images/post-2.png" alt="">
+                </div>
+
+                <div class="reactions">
+                    <div class="reaction-count">
+                        <i class="fa-solid fa-thumbs-up like-icon"></i>
+                        <i class="fa-solid fa-heart love-icon"></i>
+                        <span>3.1k</span>
+                    </div>
+
+                    <div class="comments-share">
+                        <span>83 comments</span>
+                        <span>22 shares</span>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="like-comment-share">
+                    <div class="like">
+                        <i class="fa-regular fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </div>
+                    <div class="comment">
+                        <i class="fa-regular fa-message"></i>
+                        <span>Comment</span>
+                    </div>
+                    <div class="share">
+                        <i class="fa-solid fa-share"></i>
+                        <span>Share</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="perfil-information">
+                    <div class="image-perfil">
+                        <img class="perfil-image" src="images/member-6.png" alt="">
+                    </div>
+
+                    <div class="author-post">
+                        <span>Charlotte Robinson</span>
+                        <div class="date">
+                            <span style="color: #65666a">1h</span>
+                            <span>·</span>
+                            <i style="color: #65666a" class="fa-solid fa-earth-americas"></i>
+                        </div>
+                    </div>
+
+                    <div class="icons-post">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+
+                <div class="text-post">
+                    <span>sunflower farm, on a warm summer day with cool friends to cool you down.</span>
+                    <a href="#">#flower_power</a>
+                </div>
+
+                <div class="image-post">
+                    <img src="images/post-3.png" alt="">
+                </div>
+
+                <div class="reactions">
+                    <div class="reaction-count">
+                        <i class="fa-solid fa-thumbs-up like-icon"></i>
+                        <i class="fa-solid fa-heart love-icon"></i>
+                        <span>8.9k</span>
+                    </div>
+
+                    <div class="comments-share">
+                        <span>95 comments</span>
+                        <span>19 shares</span>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="like-comment-share">
+                    <div class="like">
+                        <i class="fa-regular fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </div>
+                    <div class="comment">
+                        <i class="fa-regular fa-message"></i>
+                        <span>Comment</span>
+                    </div>
+                    <div class="share">
+                        <i class="fa-solid fa-share"></i>
+                        <span>Share</span>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="right-sidebar">
+            <div class="icons">
+                <span>Contacts</span>
+                <i class="fa-solid fa-video"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+
+            <div class="list-friends">
+                <div class="online">
+                    <img src="images/friend-1.png" alt="">
+                </div>
+                <p>Genesis Smith</p>
+            </div>
+
+
+            <div class="list-friends">
+                <div class="not-online">
+                    <img src="images/member-2.png" alt="">
+                </div>
+                <p>John Williams</p>
+            </div>
+
+            <div class="list-friends">
+                <div class="online">
+                    <img src="images/member-3.png" alt="">
+                </div>
+                <p>Susana Brown</p>
+            </div>
+
+            <div class="list-friends">
+                <div class="online">
+                    <img src="images/member-4.png" alt="">
+                </div>
+                <p>James Jones</p>
+            </div>
+
+            <div class="list-friends">
+                <div class="online">
+                    <img src="images/member-7.png" alt="">
+                </div>
+                <p>Alice Wilson</p>
+            </div>
+
+            <div class="list-friends">
+                <div class="not-online">
+                    <img src="images/member-7.png" alt="">
+                </div>
+                <p>Taylor Moore</p>
+            </div>
+
+            <div class="list-friends">
+                <div class="online">
+                    <img src="images/member-6.png" alt="">
+                </div>
+                <p>Charlotte Robinson</p>
+            </div>
+
+            <div class="list-friends">
+                <div class="not-online">
+                    <img src="images/member-8.png" alt="">
+                </div>
+                <p>Sophia Allen</p>
+            </div>
+
+            <div class="list-friends">
+                <div class="not-online">
+                    <img src="images/member-9.png" alt="">
+                </div>
+                <p>Isabella Scott</p>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
